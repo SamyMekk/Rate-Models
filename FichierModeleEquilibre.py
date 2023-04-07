@@ -2,7 +2,7 @@
 """
 Created on Fri Apr  7 22:57:04 2023
 
-@author: samym
+@author: samymekkaoui
 """
 
 
@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import scipy.integrate as sciIntegr
-from scipy import interpolate
 
 
 class ModeleEquilibre():

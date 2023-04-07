@@ -8,12 +8,9 @@ Created on Fri Apr  7 23:05:37 2023
 import pandas as pd
 import streamlit as st
 import numpy as np
-
-import os
-
 from FichierModeleEquilibre import *
 
-st.title(''' Application Simple pour la Modélisation des Taux d'intérêts par différents modèles''')
+st.title(''' Application Simple faite par Monsieur Samy Mekkaoui  pour la Modélisation des Taux d'intérêts par différents modèles''')
 
 class Vasicek(ModeleEquilibre):
     def __init__(self,kappa,theta,sigma,r0):
