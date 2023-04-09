@@ -15,15 +15,15 @@ from scipy import interpolate
 
 # Données 2019
 
-TauxNominauxSpot2019=pd.read_excel(r"C:\Users\samym\OneDrive - GENES\Documents\Modeles de Taux\TauxSpotFin2019to2022\TauxNominauxSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
-ZCISspot2019=pd.read_excel(r"C:\Users\samym\OneDrive - GENES\Documents\Modeles de Taux\TauxSpotFin2019to2022\TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
-TauxReelSpot2019=pd.read_excel(r"C:\Users\samym\OneDrive - GENES\Documents\Modeles de Taux\TauxSpotFin2019to2022\TauxNominauxSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+TauxNominauxSpot2019=pd.read_excel(r"Rate-Models\TauxSpotFin2019to2022\TauxNominauxSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+ZCISspot2019=pd.read_excel(r"Rate-Models\TauxSpotFin2019to2022\TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+TauxReelSpot2019=pd.read_excel(r"Rate-Models\TauxSpotFin2019to2022\TauxNominauxSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
 TauxReelSpot2019["Taux"]=(TauxNominauxSpot2019["Taux"]-ZCISspot2019["Taux"])/(1+ZCISspot2019["Taux"])
 
 # Données 2020
-TauxNominauxSpot2020=pd.read_excel(r"C:\Users\samym\OneDrive - GENES\Documents\Modeles de Taux\TauxSpotFin2019to2022\TauxNominauxSpot2019to2022.xlsx",sheet_name="2020",index_col=0).iloc[1:]
-ZCISspot2020=pd.read_excel(r"C:\Users\samym\OneDrive - GENES\Documents\Modeles de Taux\TauxSpotFin2019to2022\TauxInflaSpot2019to2022.xlsx",sheet_name="2020",index_col=0).iloc[1:]
-TauxReelSpot2020=pd.read_excel(r"C:\Users\samym\OneDrive - GENES\Documents\Modeles de Taux\TauxSpotFin2019to2022\TauxNominauxSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+TauxNominauxSpot2020=pd.read_excel(r"Rate-Models\TauxSpotFin2019to2022\TauxNominauxSpot2019to2022.xlsx",sheet_name="2020",index_col=0).iloc[1:]
+ZCISspot2020=pd.read_excel(r"Rate-Models\TauxSpotFin2019to2022\TauxInflaSpot2019to2022.xlsx",sheet_name="2020",index_col=0).iloc[1:]
+TauxReelSpot2020=pd.read_excel(r"Rate-Models\TauxSpotFin2019to2022\TauxNominauxSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
 TauxReelSpot2020["Taux"]=(TauxNominauxSpot2020["Taux"]-ZCISspot2020["Taux"])/(1+ZCISspot2020["Taux"])
 
 #  Données 2021
