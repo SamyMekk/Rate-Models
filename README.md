@@ -1,6 +1,4 @@
-# Rate-Models
-Modeles de Taux
-
+# Modèles de Taux
 
 Bonjour à tous !
 
