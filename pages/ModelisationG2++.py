@@ -80,7 +80,7 @@ def user_input():
     volatilityy=st.sidebar.number_input("Choississez la volatilité du 2nd facteur Gaussien",value=0.00539)
     rho=st.sidebar.number_input("Choississez la corrélation entre les 2 facteurs gaussiens",value=0.5)
     initialrate=st.sidebar.number_input("Choississez le taux initial",value=0.0296)
-    année=st.sidebar.selectbox("Choississez la courbe initiale sur laquelle le modèle va se fit",(2022,2021,2020,2019))
+    année=st.selectbox("Choississez la courbe initiale sur laquelle le modèle va se fit",(2022,2021,2020,2019))
     data={    '''Vitesse de retour du 1er facteur Gaussien''':speedx,
           '''Vitesse de retour du 2nd facteur Gaussien''':speedy,
           '''Volatilité du 1er Facteur Gaussien''':volatilityx,

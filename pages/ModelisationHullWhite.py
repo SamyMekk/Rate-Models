@@ -61,7 +61,7 @@ def user_input():
     speed=st.sidebar.number_input("Choississez la vitesse de retour à la moyenne",value= 0.039)
     volatility=st.sidebar.number_input("Choississez la volatilité du taux réel",value=0.00539)
     initialrate=st.sidebar.number_input("Choississez le taux initial",value=0.0296)
-    année=st.sidebar.selectbox("Choississez la courbe initiale sur laquelle le modèle va se fit",(2022,2021,2020,2019))
+    année=st.selectbox("Choississez la courbe initiale sur laquelle le modèle va se fit",(2022,2021,2020,2019))
     data={    '''Vitesse de retour''':speed,
           '''Volatilité du taux''':volatility,
           '''Taux initial''':initialrate,
