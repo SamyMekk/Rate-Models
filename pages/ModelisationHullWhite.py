@@ -64,7 +64,6 @@ def user_input():
     année=st.selectbox("Choississez la courbe initiale sur laquelle le modèle va se fit",(2022,2021,2020,2019))
     data={    '''Vitesse de retour''':speed,
           '''Volatilité du taux''':volatility,
-          '''Taux initial''':initialrate,
           '''Année de Calibration''':année}
     Parametres=pd.DataFrame(data,index=[0])
     return Parametres
@@ -79,7 +78,6 @@ st.write(df)
 
 Speed=df['Vitesse de retour'][0]
 Volatility=df['Volatilité du taux'][0]
-Tauxinitial=df['Taux initial'][0]
 Année=df['Année de Calibration'][0]
 Horizon=30
 
@@ -89,21 +87,25 @@ st.subheader("Voici l'allure de la courbe sur laquelle le modèle va se fit :")
 if Année==2019:
     fig, ax = plt.subplots(1, 1, figsize=(10, 10))
     ax.plot(TauxNominauxSpot2019["Temps"],TauxNominauxSpot2019["Taux"])
+    Tauxinitial=TauxNominauxSpot2019["Taux"][0]
     st.pyplot(fig)
 
 if Année==2020:
     fig, ax = plt.subplots(1, 1, figsize=(10, 10))
     ax.plot(TauxNominauxSpot2020["Temps"],TauxNominauxSpot2020["Taux"])
+    Tauxinitial=TauxNominauxSpot2020["Taux"][0]
     st.pyplot(fig)
     
 if Année==2021:
     fig, ax = plt.subplots(1, 1, figsize=(10, 10))
     ax.plot(TauxNominauxSpot2021["Temps"],TauxNominauxSpot2021["Taux"])
+    Tauxinitial=TauxNominauxSpot2021["Taux"][0]
     st.pyplot(fig)
 
 if Année==2022:
     fig, ax = plt.subplots(1, 1, figsize=(10, 10))
     ax.plot(TauxNominauxSpot2022["Temps"],TauxNominauxSpot2022["Taux"])
+    Tauxinitial=TauxNominauxSpot2022["Taux"][0]
     st.pyplot(fig)
 
 
