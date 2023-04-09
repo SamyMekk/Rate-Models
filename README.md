@@ -15,3 +15,8 @@ Nous allons étudier différents modèles :
        - Modèle Hull & White
        -Modèle G2++
        - Modèle Jarrow-Yildirim
+       
+      
+Un lien vers une application de ces diffusions de taux d'intérêt est disponible via l'URL suivante effectuée via le package "Streamlit" de Python :
+
+https://samymekkaoui-modele-taux.streamlit.app/
