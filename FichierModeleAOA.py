@@ -15,27 +15,27 @@ from scipy import interpolate
 
 # Données 2019
 
-TauxNominauxSpot2019=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
-ZCISspot2019=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
-TauxReelSpot2019=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+TauxNominauxSpot2019=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+ZCISspot2019=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+TauxReelSpot2019=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
 TauxReelSpot2019["Taux"]=(TauxNominauxSpot2019["Taux"]-ZCISspot2019["Taux"])/(1+ZCISspot2019["Taux"])
 
 # Données 2020
-TauxNominauxSpot2020=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2020",index_col=0).iloc[1:]
-ZCISspot2020=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2020",index_col=0).iloc[1:]
-TauxReelSpot2020=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+TauxNominauxSpot2020=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2020",index_col=0).iloc[1:]
+ZCISspot2020=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2020",index_col=0).iloc[1:]
+TauxReelSpot2020=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
 TauxReelSpot2020["Taux"]=(TauxNominauxSpot2020["Taux"]-ZCISspot2020["Taux"])/(1+ZCISspot2020["Taux"])
 
 #  Données 2021
-TauxNominauxSpot2021=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2021",index_col=0).iloc[1:]
-ZCISspot2021=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2021",index_col=0).iloc[1:]
-TauxReelSpot2021=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+TauxNominauxSpot2021=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2021",index_col=0).iloc[1:]
+ZCISspot2021=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2021",index_col=0).iloc[1:]
+TauxReelSpot2021=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
 TauxReelSpot2021["Taux"]=(TauxNominauxSpot2021["Taux"]-ZCISspot2021["Taux"])/(1+ZCISspot2021["Taux"])
 
 #  Données 2022
-TauxNominauxSpot2022=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2022",index_col=0).iloc[1:]
-ZCISspot2022=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2022",index_col=0).iloc[1:]
-TauxReelSpot2022=pd.read_excel(r"https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
+TauxNominauxSpot2022=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2022",index_col=0).iloc[1:]
+ZCISspot2022=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2022",index_col=0).iloc[1:]
+TauxReelSpot2022=pd.read_excel("https://github.com/SamyMekk/Rate-Models/blob/main/TauxSpotFin2019to2022/TauxInflaSpot2019to2022.xlsx",sheet_name="2019",index_col=0).iloc[1:]
 TauxReelSpot2022["Taux"]=(TauxNominauxSpot2022["Taux"]-ZCISspot2022["Taux"])/(1+ZCISspot2022["Taux"])
 class ModeleAOA1facteur():
     def __init__(self,kappa,sigma):
