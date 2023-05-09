@@ -17,4 +17,4 @@ Nous allons étudier différents modèles :
       
 Un lien vers une application de ces diffusions de taux d'intérêt est disponible via l'URL suivante effectuée via le package "Streamlit" de Python :
 
-https://samymekkaouimodelestaux.streamlit.app/
+https://samymekk-rate-models-modelisationvasicek-ry73x8.streamlit.app/
