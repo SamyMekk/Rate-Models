@@ -79,7 +79,16 @@ Horizon=df2['Horizon Temporel'][0]
 
 ModeleVasicek=Vasicek(Speed,MeanReversion,Volatility,Tauxinitial)
 
+def user_input3():
+    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=100)
+    data={'Nombre de Courbe de Taux': Nombre}
+    Parametres2=pd.DataFrame(data,index=[0])
+    return Parametres2
 
-st.pyplot(ModeleVasicek.DiffusionTaux(Horizon,100))
+if st.button('Cliquer sur le Bouton pour diffuser des Courbes de Taux'):
+    df3=user_input3()
+    st.write(df3)
+    Nombre=df3['Nombre de Courbe de Taux'][0]
+    st.pyplot(ModeleVasicek.DiffusionTaux(Horizon,Nombre))
 
 
