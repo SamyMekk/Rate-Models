@@ -65,7 +65,6 @@ MeanReversion=df['Taux de retour'][0]
 Speed=df['Vitesse de retour'][0]
 Volatility=df['Volatilité du taux'][0]
 Tauxinitial=df['Taux initial'][0]
-Horizon=df2['Horizon Temporel'][0]
 
 
 ModeleVasicek=Vasicek(Speed,MeanReversion,Volatility,Tauxinitial)
