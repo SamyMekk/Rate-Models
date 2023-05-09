@@ -28,7 +28,7 @@ class ModeleEquilibre():
         Rates=self.Euler(T)
         ShortRates=Rates["Interest Rate"]
         # CalculTemps = [x/12 for x in range(0,12)] + [*range(1,T+1,1/12)]
-        CalculTemps=np.arange(0,30+1/12,1/12)
+        CalculTemps=np.arange(0,T+1/12,1/12)
         ZC=[]
         for element in CalculTemps:
             VectorTime=np.array(ShortRates.loc[:element].index) # Index de temps

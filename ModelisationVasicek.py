@@ -60,11 +60,21 @@ st.subheader("Voici les paramètres que vous avez choisi :")
 st.write(df)
 
 
+def user_input2():
+    duree=st.slider("Choissisez le temps : ",20,80,50)
+    data={'Horizon Temporel': duree}
+    Parametres2=pd.DataFrame(data,index=[0])
+    return Parametres2
+
+df2=user_input2()
+st.write(df2)
+
 
 MeanReversion=df['Taux de retour'][0]
 Speed=df['Vitesse de retour'][0]
 Volatility=df['Volatilité du taux'][0]
 Tauxinitial=df['Taux initial'][0]
+Horizon=df2['Horizon Temporel'][0]
 
 
 ModeleVasicek=Vasicek(Speed,MeanReversion,Volatility,Tauxinitial)
