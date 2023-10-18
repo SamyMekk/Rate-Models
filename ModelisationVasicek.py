@@ -10,7 +10,7 @@ import streamlit as st
 import numpy as np
 from FichierModeleEquilibre import *
 
-st.title(''' Application Simple faite par Monsieur Samy Mekkaoui  pour la Modélisation des Taux d'intérêts par différents modèles''')
+st.title(''' Application Simple faite par  Samy Mekkaoui  pour la Modélisation des Taux d'intérêts par différents modèles''')
 
 class Vasicek(ModeleEquilibre):
     def __init__(self,kappa,theta,sigma,r0):
@@ -50,15 +50,36 @@ def user_input():
 df=user_input()
 
 
-st.header("On va maintenant s'intéresser à la modélisation de trajectoires ")
+st.header("On va maintenant s'intéresser à la modélisation de trajectoires dont on donne la dynamique ci-dessous : ")
 
-st.subheader("Choississez l'échelle de temps de projection dans la construction du modèle qui est faite de proche en proche")
+st.latex("dr(t)=a(b-r(t))dt+\sigma dWt")
+
+st.write("Avec  : ")
+
+st.write("a : la vitesse de retour à la moyenne ")
+st.write("b : le taux de retour à la moyenne " )
+st.write(" $\sigma$ la volatilité du taux ")
+
+st.subheader("Voici la manière dont on modélise les trajectoires de proche en proche : ")
+
+st.latex("r(t+\Delta)=r(t)e^{- a \Delta}+ b (1-e^{- a \Delta}) + \\frac{\sigma^{2}(1-e^{-2a \Delta})}{2} \epsilon(t)  ")
+
+st.subheader("Choississez l'échelle de temps de projection dans la construction du modèle qui est faite de proche ")
+
+st.write("Avec  : ")
+
+st.write("$\epsilon$ : Une loi Normale centrée réduite")
+st.write("$\Delta$ : l'intervalle de temps choisi pour la modélisation du taux court")
+
+
 
 
 st.subheader("Voici les paramètres que vous avez choisi :")
 
 st.write(df)
 
+
+st.subheader("Vous pouvez également choisir l'horizon temporel dans le calcul via la fonctionnalité suivante : ")
 
 def user_input2():
     duree=st.slider("Choissisez le temps : ",20,80,50)
@@ -80,7 +101,7 @@ Horizon=df2['Horizon Temporel'][0]
 ModeleVasicek=Vasicek(Speed,MeanReversion,Volatility,Tauxinitial)
 
 def user_input3():
-    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=100)
+    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=10)
     data={'Nombre de Courbe de Taux': Nombre}
     Parametres2=pd.DataFrame(data,index=[0])
     return Parametres2
