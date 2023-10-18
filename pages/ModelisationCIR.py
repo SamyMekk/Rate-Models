@@ -14,7 +14,28 @@ from FichierModeleEquilibre import *
 
 
 
-st.title('''On s'intéresse ici au modèle CIR''')
+st.title('''On s'intéresse ici au modèle CIR dont on donne la dynamique ci-dessous''')
+
+
+
+st.latex("dr(t)=a(b-r(t))dt+\sigma \sqrt{r(t)} dWt")
+
+st.write("Avec  : ")
+
+st.write("a : la vitesse de retour à la moyenne ")
+st.write("b : le taux de retour à la moyenne " )
+st.write(" $\sigma$ la volatilité du taux ")
+
+st.subheader("Voici la manière dont on discrétise le modèle : ")
+
+st.latex("r(t+\Delta)=a(b-r(t))\Delta +\sigma \sqrt{r(t)} \Delta \epsilon(t) ")
+
+
+st.write("Avec  : ")
+
+st.write("$\epsilon(t)$ : Une loi Normale centrée réduite")
+st.write("$\Delta$ : l'intervalle de temps choisi pour la modélisation du taux court")
+
          
         
 class CIR(ModeleEquilibre):
@@ -57,15 +78,15 @@ def user_input():
 df=user_input()
 
 
-st.header("On va maintenant s'intéresser à la modélisation de trajectoires ")
-
-st.subheader("Choississez l'échelle de temps de projection dans la construction du modèle qui est faite de proche en proche")
 
 
-st.subheader("Voici les paramètres que vous avez choisi :")
+
+st.subheader("Choississez les paramètres du modèle sur le menu à gauche et ils s'afficheront sur le tableau ci-dessous :")
 
 st.write(df)
 
+
+st.subheader("Choississez l'échelle de temps de projection dans la construction du modèle qui est faite de proche en proche")
 
 def user_input2():
     duree=st.slider("Choissisez le temps : ",20,80,50)
@@ -86,6 +107,17 @@ Horizon=df2['Horizon Temporel'][0]
 
 ModeleCIR=CIR(Speed,MeanReversion,Volatility,Tauxinitial)
 
+def user_input3():
+    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=10)
+    data={'Nombre de Courbe de Taux': Nombre}
+    Parametres2=pd.DataFrame(data,index=[0])
+    return Parametres2
 
-st.pyplot(ModeleCIR.DiffusionTaux(Horizon,100))
+
+if st.button('Cliquer sur le Bouton pour diffuser des Courbes de Taux'):
+    df3=user_input3()
+    st.write(df3)
+    Nombre=df3['Nombre de Courbe de Taux'][0]
+    st.pyplot(ModeleCIR.DiffusionTaux(Horizon,Nombre))
+
 

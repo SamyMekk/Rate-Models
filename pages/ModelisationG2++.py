@@ -14,10 +14,45 @@ import numpy as np
 import matplotlib.pyplot as plt
 from FichierModeleAOA import *
 
-st.title("On va s'intéresser à la dynamique du modèle G2++")
+st.title('''On s'intéresse ici au modèle G2++ dont on donne la dynamique ci-dessous''')
 
-st.write('''On va modéliser le taux d'intérêt  $r(t)$ par un Processus G2++ dont on rappelle la dynamique:''')
+st.latex("r(t)=x(t)+y(t)+\phi(t)")
 
+st.subheader("Avec  : ")
+
+st.write("$dx(t)=-ax(t)dt+\sigma_{x}dW_{x}(t)$ ")
+st.write(" $dy(t)=-by(t)dt+\sigma_{y}dW_{y}(t)$ " )
+st.write("$d<W_{x},W_{y}>_{t}=\\rho dt$")
+st.write(" $\phi(t)$ une fonction déterministe permettant de reproduire la courbe des taux initiale")
+
+st.subheader("Avec  : ")
+
+st.write(" $a$ : le paramètre de retour à la moyenne associée au facteur gaussien x")
+st.write(" $\sigma_{x}$ : le paramètre de retour à la moyenne associée au facteur gaussien x")
+st.write(" $b$ : le paramètre de retour à la moyenne associée au facteur gaussien x")
+st.write(" $\sigma_{y}$ : le paramètre de retour à la moyenne associée au facteur gaussien y")
+st.write(" $\\rho$ : la corrélation instantanée entre les 2 facteurs gaussiens")
+
+
+
+
+
+st.subheader("Voici la manière dont on discrétise le modèle : ")
+
+st.latex("x(t+\Delta)=e^{-a\Delta}x(t)+\sigma_{x}\sqrt{\\frac{1-e^{-2a\Delta}}{2a}}\epsilon_{x}(t)  ")
+st.latex("y(t+\Delta)=e^{-a\Delta}y(t)+\sigma_{y}\sqrt{\\frac{1-e^{-2a\Delta}}{2a}}\epsilon_{y}(t) ")
+st.latex("\phi(t)=f(0,t)+\\frac{\sigma_{x}^{2}}{2a^{2}}(1-e^{-2at})^{2}+ \\frac{\sigma_{y}^{2}}{2b^{2}}(1-e^{-2bt})^{2}+\\frac{\\rho\sigma_{x}\sigma_{y}}{ab}(1-e^{-at})(1-e^{-bt})")
+
+
+st.subheader("Choississez l'échelle de temps de projection dans la construction du modèle qui est faite de proche ")
+
+st.write("Avec  : ")
+
+st.write("$\epsilon_{x}(t)$ et $\epsilon_{y}(t)$ : 2 lois normales centrée réduites de corrélation $\\rho$")
+st.write("$\Delta$ : l'intervalle de temps choisi pour la modélisation du taux court")
+st.write("$f(0,t)$ : le taux forward instantané en t")
+
+st.subheader("Choississez ci-dessous la courbe initiale sur laquelle le modèle va se fit ( Courbes de début janvier de l'année)")
 
 
 
@@ -79,7 +114,7 @@ def user_input():
     speedy=st.sidebar.number_input("Choississez la vitesse de retour à la moyenne du 2nd facteur Gaussien",value= 0.039)
     volatilityy=st.sidebar.number_input("Choississez la volatilité du 2nd facteur Gaussien",value=0.00539)
     rho=st.sidebar.number_input("Choississez la corrélation entre les 2 facteurs gaussiens",value=0.5)
-    année=st.selectbox("Choississez la courbe initiale sur laquelle le modèle va se fit",(2022,2021,2020,2019))
+    année=st.selectbox(" ",(2022,2021,2020,2019))
     data={    '''Vitesse de retour du 1er facteur Gaussien''':speedx,
           '''Vitesse de retour du 2nd facteur Gaussien''':speedy,
           '''Volatilité du 1er Facteur Gaussien''':volatilityx,
@@ -90,7 +125,7 @@ def user_input():
     return Parametres
             
 df=user_input()
-st.subheader("Voici les paramètres que vous avez choisi :")
+st.subheader("Choississez les paramètres du modèle sur le menu à gauche et ils s'afficheront sur le tableau ci-dessous :")
 
 st.write(df)
 
@@ -134,7 +169,6 @@ if Année==2022:
 ModeleG2=G2(Speedx,Speedy,Volatilityx,Volatilityy,rho,Tauxinitial,Année)
 
 
-st.subheader("Voici l'allure des Courbes de Taux obtenue par le modèle")
 
 
 # Ajout de la Fonctionnalité Nombre de Simulations
@@ -149,6 +183,20 @@ st.subheader("Voici l'allure des Courbes de Taux obtenue par le modèle")
 # st.write(df2)
 # Simulations=df2["Nombre de Simulations"][0]
 
-st.pyplot(ModeleG2.DiffusionTaux(30,100))
+
+def user_input3():
+    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=10)
+    data={'Nombre de Courbe de Taux': Nombre}
+    Parametres2=pd.DataFrame(data,index=[0])
+    return Parametres2
+
+
+if st.button('Cliquer sur le Bouton pour diffuser des Courbes de Taux'):
+    df3=user_input3()
+    st.write(df3)
+    Nombre=df3['Nombre de Courbe de Taux'][0]
+    st.pyplot(ModeleG2.DiffusionTaux(Horizon,Nombre))
+
+
 
 

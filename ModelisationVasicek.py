@@ -50,7 +50,7 @@ def user_input():
 df=user_input()
 
 
-st.header("On va maintenant s'intéresser à la modélisation de trajectoires dont on donne la dynamique ci-dessous : ")
+st.header("On va  s'intéresser à la modélisation de trajectoires dont on donne la dynamique ci-dessous : ")
 
 st.latex("dr(t)=a(b-r(t))dt+\sigma dWt")
 
