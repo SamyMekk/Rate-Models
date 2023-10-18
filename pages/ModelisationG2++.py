@@ -44,7 +44,6 @@ st.latex("y(t+\Delta)=e^{-a\Delta}y(t)+\sigma_{y}\sqrt{\\frac{1-e^{-2a\Delta}}{2
 st.latex("\phi(t)=f(0,t)+\\frac{\sigma_{x}^{2}}{2a^{2}}(1-e^{-2at})^{2}+ \\frac{\sigma_{y}^{2}}{2b^{2}}(1-e^{-2bt})^{2}+\\frac{\\rho\sigma_{x}\sigma_{y}}{ab}(1-e^{-at})(1-e^{-bt})")
 
 
-st.subheader("Choississez l'échelle de temps de projection dans la construction du modèle qui est faite de proche ")
 
 st.write("Avec  : ")
 

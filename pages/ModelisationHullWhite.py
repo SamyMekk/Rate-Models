@@ -12,9 +12,37 @@ import numpy as np
 import matplotlib.pyplot as plt
 from FichierModeleAOA import *
 
-st.title("On va s'intéresser à la dynamique du modèle Hull White")
 
-st.write('''On va modéliser le taux d'intérêt  $r(t)$ par un Processus Hull White dont on rappelle la dynamique:''')
+
+st.title('''On s'intéresse ici au modèle Hull & White dont on donne la dynamique ci-dessous''')
+
+
+
+st.latex("dr(t)=(\\theta(t)-\kappa r(t))dt+\sigma  dWt")
+
+st.write("Avec  : ")
+
+st.write(" $\kappa$ : la vitesse de retour à la moyenne ")
+st.write("$\sigma$ : le taux de retour à la moyenne " )
+st.write("$\\theta(t)$ une fonction déterministe qui permet de reproduire la courbe des taux initiale")
+
+st.subheader("Voici la manière dont on discrétise le modèle : ")
+
+st.latex("r(t+\Delta)=r(t)e^{-\kappa \Delta}+\\alpha(t+\Delta)-\\alpha(t)e^{-\kappa\Delta}+\sqrt{U(t,t+\Delta)}\epsilon(t)")
+
+
+st.subheader("Avec  : ")
+
+
+st.write("$\\alpha(t)=f(0,t)+\\frac{\sigma^{2}}{2\kappa^{2}}(1-e^{-\kappa t})^{2}$")
+st.write("$U(t,t+\Delta)=\\frac{\sigma^{2}}{2 \kappa}(1-e^{-2 \kappa \Delta})$")
+st.write("$\epsilon(t)$ : une loi normale centrée réduite")
+st.write("$\Delta$ : l'intervalle de temps choisi pour la modélisation du taux court")
+st.write("$f(0,t)$ : le taux forward instantané en t")
+
+
+st.subheader("Choississez ci-dessous la courbe initiale sur laquelle le modèle va se fit ( Courbes de début janvier de l'année)")
+
 
          
 class HullWhite(ModeleAOA1facteur):
@@ -72,7 +100,7 @@ def user_input():
 df=user_input()
 
 
-st.subheader("Voici les paramètres que vous avez choisi :")
+st.subheader("Choississez les paramètres du modèle sur le menu à gauche et ils s'afficheront sur le tableau ci-dessous :")
 
 st.write(df)
 
@@ -127,5 +155,18 @@ st.subheader("Voici l'allure des Courbes de Taux obtenue par le modèle")
 # st.write(df2)
 # Simulations=df2["Nombre de Simulations"][0]
 
-st.pyplot(ModeleHullWhite.DiffusionTaux(30,100))
+def user_input3():
+    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=10)
+    data={'Nombre de Courbe de Taux': Nombre}
+    Parametres2=pd.DataFrame(data,index=[0])
+    return Parametres2
+
+
+if st.button('Cliquer sur le Bouton pour diffuser des Courbes de Taux'):
+    df3=user_input3()
+    st.write(df3)
+    Nombre=df3['Nombre de Courbe de Taux'][0]
+    st.pyplot(ModeleHullWhite.DiffusionTaux(Horizon,Nombre))
+
+
 
