@@ -156,7 +156,7 @@ st.subheader("Voici l'allure des Courbes de Taux obtenue par le modèle")
 # Simulations=df2["Nombre de Simulations"][0]
 
 def user_input3():
-    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=10)
+    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=30)
     data={'Nombre de Courbe de Taux': Nombre}
     Parametres2=pd.DataFrame(data,index=[0])
     return Parametres2
