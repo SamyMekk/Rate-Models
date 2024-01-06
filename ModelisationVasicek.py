@@ -101,7 +101,7 @@ Horizon=df2['Horizon Temporel'][0]
 ModeleVasicek=Vasicek(Speed,MeanReversion,Volatility,Tauxinitial)
 
 def user_input3():
-    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=10)
+    Nombre=st.number_input("Choississez le nombre de courbes de taux vous souhaitez diffuser",value=30)
     data={'Nombre de Courbe de Taux': Nombre}
     Parametres2=pd.DataFrame(data,index=[0])
     return Parametres2
